@@ -1,0 +1,106 @@
+<head>
+  <title>Routing Application</title>
+</head>
+
+<template name="navigation">
+  <nav class="navbar navbar-default">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <a class="navbar-brand" href="#">WebSiteName</a>
+      </div>
+      <ul class="nav navbar-nav">
+        <li class="active"><a href="/">Home</a></li>
+        <li><a href="/addProduct">Add a Product</a></li>
+        <li><a href="#">Edit Product</a></li>
+        <li><a href="#">{{> loginButtons}}</a></li>
+      </ul>
+    </div>
+  </nav>
+</template>
+
+<template name="productList">
+  {{> navigation }}
+
+  <div class="container">
+    <h3>View all products</h3>
+    
+    <ul class = "list-group">
+      {{#each products}}
+        <li class = "list-group-item>"><a href = "/viewProduct/{{_id}}">{{name}}</a></li>
+      {{/each}}
+    </ul>
+  </div>
+</template>
+
+<template name="viewProduct">
+  {{> navigation }}
+
+  <div class="container">
+    <h3>View single product</h3>
+    <ul>
+      <li>Name: {{name}}</li>
+      <li>Price: ${{price}}</li>
+      <li>Description: {{description}}</li>
+    </ul>
+    
+    <a href = "/editProduct/{{_id}}">Edit</a>
+    <a href = "/deleteProduct/{{_id}}">Delete</a>
+  </div>
+</template>
+
+<template name="login">
+  {{> navigation }}
+
+  <div class="container">
+    <h3>Please login </h3>
+  </div>
+</template>
+
+<template name="addProduct">
+  {{> navigation }}
+
+  <div class="container">
+    <h3>Add Product </h3>
+    <form id="addProductForm" class="col-lg-6">
+      <div class="from-group">
+        <input type="text" name="name" class="form-control" placeholder="name">
+        <input type="text" name="price" class="form-control" placeholder="price">
+        <textarea name="description" class="form-control" placeholder="description"></textarea>
+        <input type="submit" class="btn btn-primary">
+      </div>
+    </form>
+  </div>
+</template>
+
+<template name="editProduct">
+  {{> navigation }}
+
+  <div class="container">
+    <h3>Edit Product </h3>
+    <form id="editProductForm" class="col-lg-6">
+      <div class="from-group">
+        <input type="text" name="name" class="form-control" placeholder="name">
+        <input type="text" name="price" class="form-control" placeholder="price">
+        <textarea name="description" class="form-control" placeholder="description"></textarea>
+        <input type="submit" class="btn btn-primary">
+      </div>
+    </form>
+  </div>
+</template>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
